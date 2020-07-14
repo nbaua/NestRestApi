@@ -8,7 +8,8 @@ import {
   Delete,
 } from '@nestjs/common';
 import { FlightsService } from './flights.service';
-import { FlightDto } from './FlightDto';
+import { FlightEntity } from './flight.entity';
+
 
 @Controller('flights')
 export class FlightsController {
@@ -16,30 +17,30 @@ export class FlightsController {
 
   @Get()
   getFlights() {
+    console.log('flights route activated')
     return this.flightsService.getFlights();
   }
 
   @Get(':id')
   getFlight(@Param() params) {
     console.log('get a single flight', params.id);
-    return this.flightsService.getFlights().filter(p => p.id == params.id);
+    return this.flightsService.getFlightById(params.id);
   }
 
   @Post()
-  createFlight(@Body() flight: FlightDto) {
+  createFlight(@Body() flight: FlightEntity) {
     console.log('create flight', flight);
     this.flightsService.createFlight(flight);
   }
 
   @Put()
-  updateFlight(@Body() flight: FlightDto) {
+  updateFlight(@Body() flight: FlightEntity) {
     console.log('update flight', flight);
     this.flightsService.updateFlight(flight);
   }
 
   @Delete()
-  deleteFlight(@Body() flight: FlightDto) {
-    console.log('delete flight', flight.id);
-    this.flightsService.deleteFlight(flight.id);
+  deleteFlight(@Body() flight: FlightEntity) {
+    this.flightsService.deleteFlight(flight);
   }
 }
