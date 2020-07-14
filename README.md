@@ -6,6 +6,11 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript sample REST API Project.
 
+> ### TypeScript(Node) + NestJS + TypeORM + MySQL
+
+__The Angular FrontEnd used in the [AngraTS](https://github.com/nbaua/Angra-AngularGraphQL) repository can be used with minimal change as frontend for this project.__
+ 
+
 ## Installation
 
 > npm install
