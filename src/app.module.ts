@@ -1,10 +1,8 @@
 import { Module } from '@nestjs/common';
-import { FlightsService } from './flights/flights.service';
-import { FlightsController } from './flights/flights.controller';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { FlightsModule } from './flights/flights.module';
 
 @Module({
-  imports: [],
-  controllers: [ FlightsController],
-  providers: [ FlightsService],
+  imports: [TypeOrmModule.forRoot(), FlightsModule],
 })
 export class AppModule {}
